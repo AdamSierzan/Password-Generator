@@ -1,45 +1,34 @@
 import tkinter
 import random
+from tkinter import font
+from tkinter.constants import WORD
+from typing import Text
+import pygame
+import random
 import string
+# import password_generator
+import tkinter.messagebox
 
 
-lower_case_letters = string.ascii_lowercase
-capital_letters = string.ascii_uppercase
-special_chars = ["!","@","#","$","%","^","*","&"]
-special_chars_clean = ""
-special_chars_clean_str = special_chars_clean.join(special_chars)
-numbers = string.digits
-
-all_sings = special_chars_clean_str + capital_letters + lower_case_letters + numbers
-letters = lower_case_letters + capital_letters
-password = []
+root = tkinter.Tk()
+root.geometry("480x460")
+root.title("Password Generator")
 
 
-def password_generator():
-    strenght_of_password = input('Hi! This is a password generator that will create unique password for you,'
-                                'for strong password type "S", for easy password type "E": ')
-    
-    if strenght_of_password[0].lower() == "e":
-        number_of_chars = int(input("How many characters you need? "))
-        for i  in range(number_of_chars):
-            random_character = random.choice(letters)
-            password.append(random_character)
-    if strenght_of_password[0].lower() == "s":
-        number_of_chars = int(input("How many characters you need? "))
-        for i  in range(number_of_chars):
-            random_character = random.choice(all_sings)
-            password.append(random_character)
+frame = tkinter.Frame(root, bg='#80c1ff', bd=5)
+frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n')
 
 
-password_generator()
 
-def list_to_str(password):
-    str1 = ''
-    return (str1.join(password))
+entry = tkinter.Entry(frame, font=40)
+entry.place(relwidth=0.65, relheight=1)
 
-print(f"This is your password: {list_to_str(password)}")
+button = tkinter.Button(frame, text="Generate", font=40)
+button.place(relx=0.7,  relheight=1, relwidth=0.3)
+
+lower_frame = tkinter.Frame(root, bg='#80c1ff', bd=10)
+lower_frame.place(relx=0.5, rely=0.25, relwidth=0.75, relheight=0.65, anchor='n')
 
 
-root = tkinter()
-app = password_generator(master=root)
-app.mainloop()
+
+root.mainloop()

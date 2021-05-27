@@ -2,7 +2,7 @@
 import random
 import string
 
-def new_game():
+def new_password():
 
     lower_case_letters = string.ascii_lowercase
     capital_letters = string.ascii_uppercase
@@ -32,7 +32,7 @@ def new_game():
                 password.append(random_character)
 
 
-    password_generator()
+    # password_generator()
 
     def list_to_str(password):
         str1 = ''
@@ -40,4 +40,4 @@ def new_game():
 
     print(f"This is your password: {list_to_str(password)}")
 
-new_game()
+
